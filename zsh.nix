@@ -10,16 +10,19 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     # prezto.tmux.autoStartRemote = true;
-    shellAliases = lib.mkForce  {
+    shellAliases = lib.mkForce {
       ls = "eza --header --icons --classify";
       ll = "eza --icons -l -T -L=1";
       la = "eza --icons -la -T -L=1";
       cat = "bat";
-      htop = "btm";
+      htop = "btop";
+      top = "btop";
       fd = "fd -Lu";
-      cal = "gcal --starting-day=6";
-      update = "nix-channel --update && nix-env -u";
+      vi = "nvim";
+      vim = "nvim";
       weather = "curl v2.wttr.in";
+      gcap = "git add . && git commit -m";
+      gp = "git push";
     };
     oh-my-zsh = {
       # 2023-07-28: oh-my-zsh doesn't have a plugin that shows me the exit code if it was not 0 (I'd probably have to define my own prompt)

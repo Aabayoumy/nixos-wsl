@@ -9,7 +9,6 @@
 }: let
   unstable-packages = with pkgs.unstable; [
     # FIXME: select your core binaries that you always want on the bleeding-edge
-    git
     eza
     bat
     bottom
@@ -20,8 +19,7 @@
     findutils
     fx
     git
-    git-crypt
-    htop
+    btop
     jq
     killall
     mosh
@@ -31,17 +29,17 @@
     tmux
     tree
     unzip
-    vim
     wget
     aria2
     zsh-autosuggestions
     zsh-syntax-highlighting
     zip
-    micro
+    git
   ];
 
   stable-packages = with pkgs; [
     # FIXME: customize these stable packages to your liking for the languages that you use
+    micro
 
     # FIXME: you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
     # https://github.com/LGUG2Z/JeezyVim#extending
@@ -133,20 +131,20 @@ in {
     # };
     # FIXME: disable whatever you don't want
     fzf.enable = true;
-    fzf.enableFishIntegration = true;
+    fzf.enableZshIntegration = true;
     lsd.enable = true;
     lsd.enableAliases = true;
     zoxide.enable = true;
-    zoxide.enableFishIntegration = true;
+    zoxide.enableZshIntegration = true;
     zoxide.options = ["--cmd cd"];
     broot.enable = true;
-    broot.enableFishIntegration = true;
+    broot.enableZshIntegration = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
 
     git = {
       enable = true;
-      package = pkgs.git;
+      package = pkgs.unstable.git;
       delta.enable = true;
       delta.options = {
         line-numbers = true;
@@ -178,7 +176,6 @@ in {
         };
       };
     };
-
 
     # # FIXME: This is my fish config - you can fiddle with it if you want
     # fish = {
