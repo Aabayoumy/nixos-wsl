@@ -18,8 +18,6 @@
   inputs.alejandra.url = "github:kamadorueda/alejandra/3.0.0";
   inputs.alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.jeezyvim.url = "github:LGUG2Z/JeezyVim";
-
   outputs = inputs:
     with inputs; let
       secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
@@ -36,7 +34,6 @@
 
         overlays = [
           nur.overlay
-          jeezyvim.overlays.default
 
           (_final: prev: {
             unstable = import nixpkgs-unstable {

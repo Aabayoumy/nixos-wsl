@@ -26,7 +26,6 @@
     procs
     ripgrep
     sd
-    tmux
     tree
     unzip
     wget
@@ -40,11 +39,7 @@
   stable-packages = with pkgs; [
     # FIXME: customize these stable packages to your liking for the languages that you use
     micro
-
-    # FIXME: you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
-    # https://github.com/LGUG2Z/JeezyVim#extending
-    jeezyvim
-
+    
     # key tools
     gh # for bootstrapping
     just
@@ -80,6 +75,7 @@ in {
   imports = [
     nix-index-database.hmModules.nix-index
     ./zsh.nix
+    ./tmux.nix
   ];
 
   home.stateVersion = "24.05";
@@ -181,7 +177,7 @@ in {
     # fish = {
     #   enable = true;
     #   # FIXME: run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
-    #   # fish_add_path --append /mnt/c/Users/<Your Windows Username>/scoop/apps/win32yank/0.1.1
+    #   # fish_add_path --append /mnt/c/Users/abayoumy/AppData/Local/Microsoft/WinGet/Packages/equalsraf.win32yank_Microsoft.Winget.Source_8wekyb3d8bbwe
     #   interactiveShellInit = ''
     #     ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
