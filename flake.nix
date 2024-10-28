@@ -15,6 +15,9 @@
   inputs.nix-index-database.url = "github:Mic92/nix-index-database";
   inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+  inputs.alejandra.inputs.nixpkgs.follows = "nixpkgs";
+
   inputs.jeezyvim.url = "github:LGUG2Z/JeezyVim";
 
   outputs = inputs:
@@ -82,7 +85,7 @@
 
       nixosConfigurations.nixos = mkNixosConfiguration {
         hostname = "nixos";
-        username = "nixos"; # FIXME: replace with your own username!
+        username = "abayoumy";
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
